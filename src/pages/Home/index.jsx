@@ -70,6 +70,14 @@ export function Home() {
                 <S.MainContent>
                     <CoffeeCard />
                     <CoffeeCard />
+                    <CoffeeCard />
+                    <CoffeeCard />
+                    <CoffeeCard />
+                    <CoffeeCard />
+                    <CoffeeCard />
+                    <CoffeeCard />
+                    <CoffeeCard />
+                    <CoffeeCard />
                 </S.MainContent>
             </S.MainContainer>
 

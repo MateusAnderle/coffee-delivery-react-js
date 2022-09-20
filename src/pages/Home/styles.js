@@ -134,7 +134,6 @@ export const MainTitle = styled.div`
 
 export const MainContent = styled.div`
     display: flex;
-    justify-content: center;
-    background: #CCC;
-    height: 1645px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 `;
