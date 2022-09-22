@@ -29,7 +29,7 @@ export function Cart(){
                             </S.ZipCodeInternal>
                         </S.ZipCodeWrapper>
 
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <S.Form onSubmit={handleSubmit(onSubmit)}>
                             <input placeholder='CEP' {...register("zipCode", {required: true})} />
                             <input placeholder='Rua' {...register("street", {required: true})} />
                             <input placeholder='Número' {...register("number", {required: true})} />
@@ -37,7 +37,7 @@ export function Cart(){
                             <input placeholder='Bairro' {...register("district", {required: true})} />
                             <input placeholder='Cidade' {...register("city", {required: true})} />
                             <input placeholder='UF' {...register("state", {required: true})} />
-                        </form>
+                        </S.Form>
 
                     </S.ZipCode>
 

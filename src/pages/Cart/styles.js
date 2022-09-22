@@ -29,48 +29,47 @@ export const ZipCodeAndPayment = styled.div`
 `;
 
 export const ZipCode = styled.div`
-
     background: #F3F2F2;
     margin-top: 15px;
     margin-bottom: 12px;
     border-radius: 8px;
     padding: 40px;
+`;
 
-    form {
-        margin-top: 32px;
+export const Form = styled.div`
+    margin-top: 32px;
 
-        input {
-            border: none;
-            padding: 20px 12px;
-            margin: 8px;
-            background: #E6E5E5;
-            border-radius: 5px;
-        }
+    input {
+        border: none;
+        padding: 20px 12px;
+        margin: 8px;
+        background: #E6E5E5;
+        border-radius: 5px;
+    }
 
-        input::placeholder {
-            color: #8D8686;
-        }
-        input[name="zipCode"] {
-            width: 200px;     
-        }
-        input[name="street"] {
-            width: 520px;     
-        }
-        input[name="number"] {
-            width: 170px;     
-        }
-        input[name="complement"] {
-            width: 310px;     
-        }
-        input[name="district"] {
-            width: 170px;     
-        }
-        input[name="city"] {
-            width: 212px;     
-        }
-        input[name="state"] {
-            width: 58px;     
-        }
+    input::placeholder {
+        color: #8D8686;
+    }
+    input[name="zipCode"] {
+        width: 200px;     
+    }
+    input[name="street"] {
+        width: 520px;     
+    }
+    input[name="number"] {
+        width: 170px;     
+    }
+    input[name="complement"] {
+        width: 310px;     
+    }
+    input[name="district"] {
+        width: 170px;     
+    }
+    input[name="city"] {
+        width: 212px;     
+    }
+    input[name="state"] {
+        width: 58px;     
     }
 `;
 
