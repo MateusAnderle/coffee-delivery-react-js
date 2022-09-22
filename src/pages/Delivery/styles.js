@@ -152,26 +152,6 @@ export const Payment = styled.div`
     padding: 40px;
 `;
 
-export const CoffeeWrapper = styled.div`
-    span {
-        font-size: 18px;
-        font-weight: bold;
-        font-family: 'Baloo 2', cursive;
-        margin-bottom: 15px;
-    }
-`;
-
-export const CoffeeContainer = styled.div`
-    margin-top: 15px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 44px;
-    border-bottom-left-radius: 44px;
-    border-bottom-right-radius: 6px;
-    background: #F3F2F2;
-    width: 448px;
-    height: 498px;
-`;
-
 export const PaymentWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -216,10 +196,92 @@ export const PaymentsMethods = styled.div`
     }
 
     button:hover {
-        background: #B9B6B6;
+        background: #EBE5F9;
+        border: 1px solid #8047F8;
     }
 `;
 
 export const PaySpan = styled.div`
     margin-left: 8px;
 `;
+
+export const CoffeeWrapper = styled.div`
+    span {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: 'Baloo 2', cursive;
+        margin-bottom: 15px;
+    }
+`;
+
+export const CoffeeContainer = styled.div`
+    box-sizing: border-box;
+    margin-top: 15px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 44px;
+    border-bottom-left-radius: 44px;
+    border-bottom-right-radius: 6px;
+    background: #F3F2F2;
+    width: 448px;
+    padding: 40px;
+`;
+
+export const TotalWrapper = styled.div`
+    margin-bottom: 24px;
+    margin-top: 24px;
+`;
+
+export const TotalItems = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 13.5px;
+`;
+
+export const TotalDescription = styled.div`
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #574F4D;
+`;
+
+export const TotalPrice = styled.div`
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #574F4D;
+`;
+
+export const TotalDescriptionTitle = styled.div`
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #403937;
+    font-weight: bold;
+`;
+
+export const TotalPriceTitle = styled.div`
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #403937;
+    font-weight: bold;
+`;
+
+export const ConfirmButton = styled.button`
+    border: 0;
+    height: 46px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    background: #DBAC2C;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    :hover {
+    background-color: rgba(219, 172, 44, 0.7);
+    border: 1px solid #DBAC2C;
+}
+`;
+

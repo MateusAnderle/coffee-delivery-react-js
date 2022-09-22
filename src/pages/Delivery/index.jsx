@@ -2,6 +2,7 @@ import LogoSvg from '../../assets/Logo.svg';
 import { ShoppingCart, MapPin, MapPinLine, CurrencyDollar, Money, Bank, CreditCard } from "phosphor-react";
 import * as S from './styles';
 import { useForm } from 'react-hook-form';
+import { CoffeeList } from '../../components/CoffeeList';
 
 export function Delivery(){
     const { register, handleSubmit } = useForm();
@@ -77,7 +78,30 @@ export function Delivery(){
                 <S.CoffeeWrapper>
                     <span>Cafés selecionados</span>
                     <S.CoffeeContainer>
-                        Aqui vai o resumo do pedido XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        
+                        <CoffeeList />
+                        <CoffeeList />
+                        
+                        <S.TotalWrapper>
+                            <S.TotalItems>
+                                <S.TotalDescription>Total de itens</S.TotalDescription>
+                                <S.TotalPrice>R$ 29,70</S.TotalPrice>
+                            </S.TotalItems>
+
+                            <S.TotalItems>
+                                <S.TotalDescription>Entrega</S.TotalDescription>
+                                <S.TotalPrice>R$ 3,50</S.TotalPrice>
+                            </S.TotalItems>
+
+                            <S.TotalItems>
+                                <S.TotalDescriptionTitle>Total</S.TotalDescriptionTitle>
+                                <S.TotalPriceTitle>R$ 33,20</S.TotalPriceTitle>
+                            </S.TotalItems>
+
+                        </S.TotalWrapper>
+
+                        <S.ConfirmButton>CONFRIMAR PEDIDO</S.ConfirmButton>
+
                     </S.CoffeeContainer>
                 </S.CoffeeWrapper>
 
