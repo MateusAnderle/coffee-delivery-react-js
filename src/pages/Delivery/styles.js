@@ -7,281 +7,90 @@ export const BodyShape = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 170px;
-`;
-
-export const Header = styled.header`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 32px 0;
-
-    img {
-        height: 40px;
-    }
-`;
-
-export const HeaderOptions = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-export const CurrentLocation = styled.button`
-    border: 0;
-    height: 40px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    background: #EBE5F9;
-    color: #4B2995;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    cursor: pointer;
-`;
-
-export const CartIcon = styled.button`
-    border: 0;
-    height: 40px;
-    width: 40px;
-    border-radius: 8px;
-    background: #F1E9C9;
-    color: #C47F17;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-left: 12px;
-    cursor: pointer;
-`;
-
-export const MainContainer = styled.main`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-`;
-
-export const ZipCodeAndPayment = styled.div`
-    flex: 1;
-    height: 590px;
-    margin-right: 32px;
-
-    span {
-        font-size: 18px;
-        font-weight: bold;
-        font-family: 'Baloo 2', cursive;
-    }
-`;
-
-export const ZipCode = styled.div`
-    height: 372px;
-    background: #F3F2F2;
-    margin-top: 15px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    padding: 40px;
-
-    form {
-        margin-top: 32px;
-
-        input {
-            border: none;
-            padding: 20px 12px;
-            margin: 8px;
-            background: #E6E5E5;
-            border-radius: 5px;
-        }
-
-        input::placeholder {
-            color: #8D8686;
-        }
-        input[name="zipCode"] {
-            width: 200px;     
-        }
-        input[name="street"] {
-            width: 560px;     
-        }
-        input[name="number"] {
-            width: 194px;     
-        }
-        input[name="complement"] {
-            width: 326px;     
-        }
-        input[name="district"] {
-            width: 190px;     
-        }
-        input[name="city"] {
-            width: 232px;     
-        }
-        input[name="state"] {
-            width: 58px;     
-        }
-    }
-`;
-
-export const ZipCodeWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-`;
-
-export const ZipCodeInternal = styled.div`
-    margin-left: 8px;
-`;
-
-export const ZipCodeTitle = styled.div`
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    color: #403937;
-    margin-bottom: 2px;
-`;
-
-export const ZipCodeDescription = styled.div`
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    color: #574F4D;
-`;
-
-export const Payment = styled.div`
-    background: #F3F2F2;
-    height: 130px;
-    border-radius: 8px;
-    padding: 40px;
-`;
-
-export const PaymentWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-`;
-
-export const PaymentInternal = styled.div`
-    margin-left: 8px;
-`;
-
-export const PaymentTitle = styled.div`
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    color: #403937;
-    margin-bottom: 2px;
-`;
-
-export const PaymentDescription = styled.div`
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    color: #574F4D;
-`;
-
-export const PaymentsMethods = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 32px;
-
-    button {
-        border: 0;
-        height: 50px;
-        width: 190px;
-        border-radius: 8px;
-        font-size: 12px;
-        font-family: 'Roboto', sans-serif;
-        background: #E6E5E5;
-        color: #574F4D;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: #EBE5F9;
-        border: 1px solid #8047F8;
-    }
-`;
-
-export const PaySpan = styled.div`
-    margin-left: 8px;
-`;
-
-export const CoffeeWrapper = styled.div`
-    span {
-        font-size: 18px;
-        font-weight: bold;
-        font-family: 'Baloo 2', cursive;
-        margin-bottom: 15px;
-    }
-`;
-
-export const CoffeeContainer = styled.div`
     box-sizing: border-box;
-    margin-top: 15px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 44px;
-    border-bottom-left-radius: 44px;
-    border-bottom-right-radius: 6px;
-    background: #F3F2F2;
-    width: 448px;
-    padding: 40px;
+    margin-bottom: 50px;
 `;
 
-export const TotalWrapper = styled.div`
-    margin-bottom: 24px;
-    margin-top: 24px;
+export const Main = styled.main`
+    width: 100%;
 `;
 
-export const TotalItems = styled.div`
+export const TitleContainer = styled.div`
+    margin-bottom: 40px;
+`;
+
+export const Title = styled.div`
+    font-family: 'Baloo 2', cursive;
+    font-size: 32px;
+    font-weight: bold;
+    color: #C47F17;
+    margin-bottom: 4px;
+`;
+
+export const Subtitle = styled.div`
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #403937;
+    font-weight: 400;
+`;
+
+export const ContentWrapper = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 13.5px;
 `;
 
-export const TotalDescription = styled.div`
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    color: #574F4D;
+export const Content = styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #DBAC2C;
+    border-radius: 6px 36px;
 `;
 
-export const TotalPrice = styled.div`
+export const IconContainer = styled.div`
+    flex: 1;
+    margin: 40px;
+`;
+
+export const IconCard = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 32px;
+`;
+
+export const IconSeparator = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    padding: 8px;
+    border-radius: 50%;
+`;
+
+export const IconWrapper = styled.div``;
+
+export const IconTitle = styled.div`
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     color: #574F4D;
 `;
 
-export const TotalDescriptionTitle = styled.div`
-    font-size: 20px;
+export const IconDescription = styled.div`
+    font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    color: #403937;
-    font-weight: bold;
+    color: #574F4D;
 `;
 
-export const TotalPriceTitle = styled.div`
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    color: #403937;
-    font-weight: bold;
-`;
-
-export const ConfirmButton = styled.button`
-    border: 0;
-    height: 46px;
-    width: 100%;
-    border-radius: 6px;
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    background: #DBAC2C;
-    color: #FFFFFF;
+export const ImageWrapper = styled.div`
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-
-    :hover {
-    background-color: rgba(219, 172, 44, 0.7);
-    border: 1px solid #DBAC2C;
-}
+    align-items: center;
 `;
 
+export const Image = styled.img`
+    height: 293px;
+    width: 492px;
+`;
