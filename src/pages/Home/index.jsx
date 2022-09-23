@@ -1,11 +1,18 @@
 import * as S from './styles'
 import IntroImage from '../../assets/IntroImage.svg';
-
 import { ShoppingCart, Package, Clock, Coffee } from "phosphor-react";
 import { CoffeeCard } from '../../components/CoffeeCard';
 import { Header } from '../../components/Header';
+import { coffeeData } from '../../data';
+import { useState } from 'react';
 
 export function Home() {
+    const [orderedCoffee, setOrderedCoffee] = useState([]);
+
+    function handleCartSubmit({title, counter}){
+        setOrderedCoffee([...orderedCoffee, {title: title, counter: counter}])
+    }
+
     return (
         <S.BodyShape>
             <Header/>
@@ -56,16 +63,19 @@ export function Home() {
                 </S.MainTitle>
 
                 <S.MainContent>
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
-                    <CoffeeCard />
+                    {coffeeData.map(item => {
+                        return (
+                            <CoffeeCard 
+                                image={item.photo}
+                                coffeeStyle={item.style}
+                                title={item.title}
+                                description={item.description}
+                                price={item.price}
+                                handleCartSubmit={handleCartSubmit}
+                            />
+                            )
+                        })
+                    } 
                 </S.MainContent>
             </S.MainContainer>
 

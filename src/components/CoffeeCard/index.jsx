@@ -1,37 +1,59 @@
 import * as S from './styles';
-import { ShoppingCart } from "phosphor-react";
-import CoffeeExample from '../../assets/Coffee.png';
+import { ShoppingCart, Plus, Minus } from "phosphor-react";
+import { useState } from 'react';
 
-export function CoffeeCard(){
+export function CoffeeCard({ image, coffeeStyle, title, description, price, handleCartSubmit}){
+    const [counter, setCounter] = useState(0);
+
+    function handleDecrease(){
+        if(counter === 0) {
+            return
+        } else {
+            setCounter(counter - 1);
+        }
+    }
+
+    function handleIncrease(){
+        setCounter(counter + 1);
+    }
+
     return(
         <S.Container>
             
-            <S.CoffeeImage src={CoffeeExample} />    
+            <S.CoffeeImage src={image} />  
 
             <S.CoffeeStyle>
-                Tradicional
+                {coffeeStyle}
             </S.CoffeeStyle>
 
             <S.CoffeeTitle>
-                Expresso Tradicional
+                {title}
             </S.CoffeeTitle>
 
             <S.CoffeeDescription>
-                O tradicional café feito com água quente e grãos moídos
+                {description}
             </S.CoffeeDescription>
 
             <S.BottomWrapper>
 
                 <S.CoffePrice>
-                    R$ 9,90
+                    {price}
                 </S.CoffePrice>
 
                 <S.CoffeeUnits>
-                    - 1 +
+                    <button type="button" onClick={handleDecrease}>
+                        <Minus size={16} color="#4B2995"/>
+                    </button>
+                        {counter}
+                    <button type="button" onClick={handleIncrease}>
+                        <Plus size={16} color="#4B2995"/>
+                    </button>
                 </S.CoffeeUnits>
 
                 <S.ButtonCart>
-                    <ShoppingCart size={24}/>
+                    <button type="button" onClick={() => handleCartSubmit({title, counter})}>
+                    <ShoppingCart size={24} color="#FFFFFF"/>
+                    </button>
                 </S.ButtonCart>
 
             </S.BottomWrapper>

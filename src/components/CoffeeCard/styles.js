@@ -45,7 +45,7 @@ export const CoffeeTitle = styled.div`
 
 export const CoffeeDescription = styled.div`
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     color: #8D8686;
     margin-bottom: 33px;
     text-align: center;
@@ -70,23 +70,34 @@ export const CoffeeUnits = styled.div`
     border-radius: 8px;
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
-    background: #EBE5F9;
+    background-color: #EBE5F9;
     color: #4B2995;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     font-weight: bold;
-    cursor: pointer;
+
+    button {
+        border: none;
+        cursor: pointer;
+        background-color: #EBE5F9;
+    }
 `;
 
-export const ButtonCart = styled.button`
-    border: 0;
+export const ButtonCart = styled.div`
     height: 40px;
+    width: 40px;
     border-radius: 8px;
     background: #4B2995;
     color: #F3F2F2;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    
+
+    button {
+        border: 0;
+        cursor: pointer;
+        background: #4B2995;
+    }
 `;
