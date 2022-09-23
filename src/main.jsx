@@ -14,7 +14,6 @@ import { Cart } from './pages/Cart';
 - Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
 - Fazer o BodyShape com margins, para quando reduzir a tela não fica tudo zoado
-- olhar descrição do coffee card, está quebrando o card [X]
 - Adicionar react-router-dom - Para navegação
 - Otimizar o uso do React-Hook-Form nos input existents
 - Criar todo a regra de negócio e funcionalidades solicitadas.

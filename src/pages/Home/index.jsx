@@ -10,8 +10,35 @@ export function Home() {
     const [orderedCoffee, setOrderedCoffee] = useState([]);
 
     function handleCartSubmit({title, counter}){
+
+        if ( counter == 0) {
+            const filterAndReset = orderedCoffee.filter(order => {
+                return order.title !== title;
+            })
+
+            setOrderedCoffee(filterAndReset);
+
+            return
+        }
+/*
+        const compareOrders = orderedCoffee.filter(order => {
+            return (
+                if (order.title == title){
+                    pagar antigo indice do array que tinha o counter anterior 
+                }
+                
+        })
+        setOrderedCoffee(compareOrders);
+*/
+
+
+
         setOrderedCoffee([...orderedCoffee, {title: title, counter: counter}])
     }
+
+
+    console.log(orderedCoffee)
+
 
     return (
         <S.BodyShape>
