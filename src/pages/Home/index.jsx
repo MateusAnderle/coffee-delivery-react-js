@@ -5,13 +5,15 @@ import { CoffeeCard } from '../../components/CoffeeCard';
 import { Header } from '../../components/Header';
 import { coffeeData } from '../../data';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Home() {
     const [orderedCoffee, setOrderedCoffee] = useState([]);
 
     function handleCartSubmit({title, counter}){
 
-        if ( counter == 0) {
+       /* if ( counter == 0) {
             const filterAndReset = orderedCoffee.filter(order => {
                 return order.title !== title;
             })
@@ -19,31 +21,29 @@ export function Home() {
             setOrderedCoffee(filterAndReset);
 
             return
-        }
-/*
-        const compareOrders = orderedCoffee.filter(order => {
-            return (
-                if (order.title == title){
-                    pagar antigo indice do array que tinha o counter anterior 
-                }
-                
-        })
-        setOrderedCoffee(compareOrders);
-*/
+        }*/
 
+        /*const currentTitle = orderedCoffee.find(element => element.title == title);
 
-
+        if(currentTitle.title == title) {
+            console.log('Café já adicionado')
+            return
+        } */
+        
         setOrderedCoffee([...orderedCoffee, {title: title, counter: counter}])
+        toast.success('Item adicionado ao carrinho');
+        toast.warn('Quantidade máxima: 99');
+        toast.info('Quantidade máxima: 99');
+        toast.error('Quantidade máxima: 99');
+        console.log('oi')
     }
 
-
     console.log(orderedCoffee)
-
 
     return (
         <S.BodyShape>
             <Header/>
-
+            <ToastContainer theme='dark'/>
             <S.IntroContainer>
                 <S.IntroContent>
                     <S.IntroTexts>
