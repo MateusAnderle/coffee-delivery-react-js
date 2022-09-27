@@ -2,8 +2,14 @@ import * as S from './styles';
 import { ShoppingCart, Plus, Minus } from "phosphor-react";
 import { useState } from 'react';
 
-export function CoffeeCard({ image, coffeeStyle, title, description, price, handleCartSubmit}){
+export function CoffeeCard({ id, image, coffeeStyle, name, description, price, handleCartSubmit}){
     const [counter, setCounter] = useState(0);
+
+    const formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    })
+    const currencyPrice = formatter.format(price)
 
     function handleDecrease(){
         if(counter === 0) {
@@ -20,14 +26,14 @@ export function CoffeeCard({ image, coffeeStyle, title, description, price, hand
     return(
         <S.Container>
             
-            <S.CoffeeImage src={image} />  
+            <S.CoffeeImage src={image} alt={name} />  
 
             <S.CoffeeStyle>
                 {coffeeStyle}
             </S.CoffeeStyle>
 
             <S.CoffeeTitle>
-                {title}
+                {name}
             </S.CoffeeTitle>
 
             <S.CoffeeDescription>
@@ -37,14 +43,20 @@ export function CoffeeCard({ image, coffeeStyle, title, description, price, hand
             <S.BottomWrapper>
 
                 <S.CoffePrice>
-                    {price}
+                    {currencyPrice}
                 </S.CoffePrice>
 
                 <S.CoffeeUnits>
                     <button type="button" onClick={handleDecrease}>
                         <Minus size={16} color="#4B2995"/>
                     </button>
-                        {counter}
+
+                        <input type="number"
+                            value={counter}               
+                            min={1}
+                            max={99}
+                        />
+                        
                     <button type="button" onClick={handleIncrease}>
                         <Plus size={16} color="#4B2995"/>
                     </button>

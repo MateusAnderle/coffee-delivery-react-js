@@ -3,7 +3,7 @@ import IntroImage from '../../assets/IntroImage.svg';
 import { ShoppingCart, Package, Clock, Coffee } from "phosphor-react";
 import { CoffeeCard } from '../../components/CoffeeCard';
 import { Header } from '../../components/Header';
-import { coffeeData } from '../../data';
+import { coffeesList } from '../../utils/coffeeList';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -90,12 +90,13 @@ export function Home() {
                 </S.MainTitle>
 
                 <S.MainContent>
-                    {coffeeData.map(item => {
+                    {coffeesList.map(item => {
                         return (
                             <CoffeeCard 
-                                image={item.photo}
-                                coffeeStyle={item.style}
-                                title={item.title}
+                                id={item.id}
+                                image={item.image}
+                                coffeeStyle={item.tags}
+                                name={item.name}
                                 description={item.description}
                                 price={item.price}
                                 handleCartSubmit={handleCartSubmit}
