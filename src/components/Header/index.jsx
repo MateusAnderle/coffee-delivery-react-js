@@ -1,9 +1,9 @@
 import * as S from './styles';
 import LogoSvg from '../../assets/Logo.svg';
-import { ShoppingCart, MapPin } from "phosphor-react";
+import { ShoppingCart, MapPin , House} from "phosphor-react";
 
 
-export function Header(){
+export function Header({object}){
     return (
         <S.Header>
             <img src={LogoSvg} alt="Logotipo ilustrando um copo de café" />
@@ -12,6 +12,13 @@ export function Header(){
                     <MapPin size={24} />
                     <span>Jaraguá do Sul, SC</span>
                 </S.CurrentLocation>
+
+                <S.HouseIcon 
+                    onClick={() => {}}
+                    numberToItensAtShopCart={object.length}
+                >
+                    <House size={24} />
+                </S.HouseIcon>
 
                 <S.CartIcon>
                     <ShoppingCart size={24} />

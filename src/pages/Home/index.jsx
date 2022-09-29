@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export function Home() {
     const [orderedCoffee, setOrderedCoffee] = useState([]);
 
-    function handleCartSubmit({title, counter}){
+    function handleCartSubmit({name, counter}){
 
        /* if ( counter == 0) {
             const filterAndReset = orderedCoffee.filter(order => {
@@ -30,20 +30,19 @@ export function Home() {
             return
         } */
         
-        setOrderedCoffee([...orderedCoffee, {title: title, counter: counter}])
+        setOrderedCoffee([...orderedCoffee, {name: name, counter: counter}])
         toast.success('Item adicionado ao carrinho');
-        toast.warn('Quantidade máxima: 99');
-        toast.info('Quantidade máxima: 99');
-        toast.error('Quantidade máxima: 99');
-        console.log('oi')
+
+        //toast.error('Ocorreu algum erro');
+
     }
 
     console.log(orderedCoffee)
 
     return (
         <S.BodyShape>
-            <Header/>
-            <ToastContainer theme='dark'/>
+            <Header object={orderedCoffee}/>
+            <ToastContainer theme='light'/>
             <S.IntroContainer>
                 <S.IntroContent>
                     <S.IntroTexts>

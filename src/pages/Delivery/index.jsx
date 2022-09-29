@@ -24,7 +24,7 @@ export function Delivery(){
                                     </S.IconSeparator>
                                     <S.IconWrapper>
                                         <S.IconTitle>
-                                            Entrega em Rua João Daniel Martinelli, 102
+                                            <strong>Entrega em Rua João Daniel Martinelli, 102</strong>
                                         </S.IconTitle>
                                         <S.IconDescription>
                                             Farrapos - Porto Alegre, RS
@@ -38,10 +38,10 @@ export function Delivery(){
                                     </S.IconSeparator>
                                     <S.IconWrapper>
                                         <S.IconTitle>
-                                            Entrega em Rua João Daniel Martinelli, 102
+                                            Previsão de entrega
                                         </S.IconTitle>
                                         <S.IconDescription>
-                                            Farrapos - Porto Alegre, RS
+                                            <strong>20 min - 30 min</strong>
                                         </S.IconDescription>
                                     </S.IconWrapper>
                                 </S.IconCard>
@@ -52,10 +52,10 @@ export function Delivery(){
                                     </S.IconSeparator>
                                     <S.IconWrapper>
                                         <S.IconTitle>
-                                            Entrega em Rua João Daniel Martinelli, 102
+                                            Pagamento na entrega
                                         </S.IconTitle>
                                         <S.IconDescription>
-                                            Farrapos - Porto Alegre, RS
+                                            <strong>Cartão de crédito</strong>
                                         </S.IconDescription>
                                     </S.IconWrapper>
                                 </S.IconCard>

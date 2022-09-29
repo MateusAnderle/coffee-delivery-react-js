@@ -1,33 +1,43 @@
 import * as S from './styles';
 import { ShoppingCart, Plus, Minus } from "phosphor-react";
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 export function CoffeeCard({ id, image, coffeeStyle, name, description, price, handleCartSubmit}){
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(1);
 
     const formatter = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
     })
-    const currencyPrice = formatter.format(price)
+    const currencyPrice = formatter.format(price * counter)
 
     function handleDecrease(){
-        if(counter === 0) {
-            return
-        } else {
-            setCounter(counter - 1);
+        const newCount = counter - 1
+
+        if (newCount <= 0) {
+        toast.warn('Quantidade mínima: 1')
+        return
         }
+        setCounter(newCount)
     }
 
     function handleIncrease(){
-        setCounter(counter + 1);
+        const newCount = counter + 1
+
+        if (newCount >= 100) {
+        toast.warn('Quantidade máxima: 99')
+        return
+        }
+
+        setCounter(newCount);
     }
 
     return(
         <S.Container>
             
             <S.CoffeeImage src={image} alt={name} />  
-
+                <ToastContainer theme='light'/>
             <S.CoffeeStyle>
                 {coffeeStyle}
             </S.CoffeeStyle>
@@ -63,7 +73,7 @@ export function CoffeeCard({ id, image, coffeeStyle, name, description, price, h
                 </S.CoffeeUnits>
 
                 <S.ButtonCart>
-                    <button type="button" onClick={() => handleCartSubmit({title, counter})}>
+                    <button type="button" onClick={() => handleCartSubmit({name, counter})}>
                     <ShoppingCart size={24} color="#FFFFFF"/>
                     </button>
                 </S.ButtonCart>
