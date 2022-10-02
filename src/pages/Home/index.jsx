@@ -7,11 +7,13 @@ import { coffeesList } from '../../utils/coffeeList';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 export function Home() {
     const [orderedCoffee, setOrderedCoffee] = useState([]);
+    const { saveToLocalStorage } = useLocalStorage()
 
-    function handleCartSubmit({name, counter}){
+    function handleCartSubmit({name, counter, setCounter, image, currencyPrice}){
 
        /* if ( counter == 0) {
             const filterAndReset = orderedCoffee.filter(order => {
@@ -30,18 +32,15 @@ export function Home() {
             return
         } */
         
-        setOrderedCoffee([...orderedCoffee, {name: name, counter: counter}])
+        setOrderedCoffee([...orderedCoffee, {name: name, counter: counter, image: image, currencyPrice: currencyPrice}])
+        saveToLocalStorage(orderedCoffee, '@coffee-delivery:shop-cart')
         toast.success('Item adicionado ao carrinho');
-
-        //toast.error('Ocorreu algum erro');
-
+        setCounter(1);
     }
-
-    console.log(orderedCoffee)
 
     return (
         <S.BodyShape>
-            <Header object={orderedCoffee}/>
+            <Header/>
             <ToastContainer theme='light'/>
             <S.IntroContainer>
                 <S.IntroContent>

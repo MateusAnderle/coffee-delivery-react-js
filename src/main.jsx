@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import { Delivery } from './pages/Delivery';
-import { Home } from './pages/Home';
-import { Cart } from './pages/Cart';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './Router';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Home/>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   </React.StrictMode>
 )

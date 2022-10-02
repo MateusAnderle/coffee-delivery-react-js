@@ -3,10 +3,32 @@ import * as S from './styles';
 import { useForm } from 'react-hook-form';
 import { CoffeeList } from '../../components/CoffeeList';
 import { Header } from '../../components/Header';
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useEffect, useState } from "react";
 
 export function Cart(){
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
+    const [cartData, setCartData] = useState([]);
+    const [pricesSum, setPricesSum] = useState([]);
+
+    const formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    })
+
+    useEffect(()=>{
+        const { loadLocalStorage } = useLocalStorage()
+        setCartData(loadLocalStorage('@coffee-delivery:shop-cart'));
+        const realData = loadLocalStorage('@coffee-delivery:shop-cart');
+        const extractData = realData.map(item => parseFloat(item.currencyPrice.replace('R$', '')));
+        const prices = extractData.reduce((a, b) => a + b);
+        setPricesSum(prices)
+    },[])
+ 
+    const totalItens = formatter.format(pricesSum)
+    
+    const totalCart = formatter.format(pricesSum + 3.50)
 
     return (
         <S.BodyShape>
@@ -67,13 +89,22 @@ export function Cart(){
                     <span>Cafés selecionados</span>
                     <S.CoffeeContainer>
                         
-                        <CoffeeList />
-                        <CoffeeList />
+                    {cartData.map(item => {
+                        return (
+                            <CoffeeList 
+                                name={item.name}
+                                price={item.price}
+                                image={item.image}
+                                counter={item.counter}
+                            />
+                            )
+                        })
+                    } 
                         
                         <S.TotalWrapper>
                             <S.TotalItems>
                                 <S.TotalDescription>Total de itens</S.TotalDescription>
-                                <S.TotalPrice>R$ 29,70</S.TotalPrice>
+                                <S.TotalPrice>{totalItens}</S.TotalPrice>
                             </S.TotalItems>
 
                             <S.TotalItems>
@@ -83,7 +114,7 @@ export function Cart(){
 
                             <S.TotalItems>
                                 <S.TotalDescriptionTitle>Total</S.TotalDescriptionTitle>
-                                <S.TotalPriceTitle>R$ 33,20</S.TotalPriceTitle>
+                                <S.TotalPriceTitle>{totalCart}</S.TotalPriceTitle>
                             </S.TotalItems>
 
                         </S.TotalWrapper>

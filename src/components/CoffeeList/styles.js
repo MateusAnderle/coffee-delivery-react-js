@@ -66,6 +66,48 @@ export const Counter = styled.div`
     cursor: pointer;
 `;
 
+export const CoffeeUnits = styled.div`
+    border: 0;
+    height: 40px;
+    width: 82px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #EBE5F9;
+    color: #4B2995;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+
+    button {
+        border: none;
+        cursor: pointer;
+        background-color: #EBE5F9;
+        width: 20px;
+    }
+
+    input[type="number"] {
+        border: none;
+        background-color: #EBE5F9;
+        font-size: 17px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        color: #4B2995;
+        width: 25px;
+        text-align: center;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+`;
+
 export const Remove = styled.button`
     display: flex;
     border: none;
@@ -78,6 +120,12 @@ export const Remove = styled.button`
     border-radius: 8px;
     padding: 5px;
     margin-left: 8px;
+    cursor: pointer;
+   
+    :hover {
+        background: #EBE5F9;
+        border: 1px solid #8047F8;
+    }
 `;
 
 export const Subtitle = styled.div`

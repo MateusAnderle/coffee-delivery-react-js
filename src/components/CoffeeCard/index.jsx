@@ -73,7 +73,7 @@ export function CoffeeCard({ id, image, coffeeStyle, name, description, price, h
                 </S.CoffeeUnits>
 
                 <S.ButtonCart>
-                    <button type="button" onClick={() => handleCartSubmit({name, counter})}>
+                    <button type="button" onClick={() => handleCartSubmit({name, counter, setCounter, image, currencyPrice})}>
                     <ShoppingCart size={24} color="#FFFFFF"/>
                     </button>
                 </S.ButtonCart>
