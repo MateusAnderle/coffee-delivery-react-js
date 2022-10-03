@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 
-export function CoffeeList({name, price, image, counter}){
+export function CoffeeList({name, price, image, counter, handleDelete}){
     const [counterList, setCounterList] = useState(1);
     const [orderedCoffee, setOrderedCoffee] = useState([]);
     const { saveToLocalStorage } = useLocalStorage()
@@ -68,7 +68,7 @@ export function CoffeeList({name, price, image, counter}){
                         </button>
                     </S.CoffeeUnits>
 
-                        <S.Remove>
+                        <S.Remove onClick={() => handleDelete({name})}>
                             <Trash size={16} color="#8047F8"/>
                             <S.Subtitle>REMOVER</S.Subtitle>
                         </S.Remove>

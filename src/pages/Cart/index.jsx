@@ -10,25 +10,48 @@ export function Cart(){
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     const [cartData, setCartData] = useState([]);
-    const [pricesSum, setPricesSum] = useState([]);
-
+    const [pricesSum, setPricesSum] = useState(0);
     const formatter = new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
     })
+    const { loadLocalStorage } = useLocalStorage()
+    
 
     useEffect(()=>{
-        const { loadLocalStorage } = useLocalStorage()
         setCartData(loadLocalStorage('@coffee-delivery:shop-cart'));
-        const realData = loadLocalStorage('@coffee-delivery:shop-cart');
-        const extractData = realData.map(item => parseFloat(item.currencyPrice.replace('R$', '')));
-        const prices = extractData.reduce((a, b) => a + b);
-        setPricesSum(prices)
+        if(cartData.length === 0) {
+            return 
+        } else {
+            const extractData = cartData.map(item => parseFloat(item.currencyPrice.replace('R$', '')));
+            const prices = extractData.reduce((a, b) => a + b);
+            setPricesSum(prices)
+        }  
     },[])
- 
+
+    useEffect(()=>{
+        if(cartData.length === 0) {
+            return 
+        } else {
+            const extractData = cartData.map(item => parseFloat(item.currencyPrice.replace('R$', '')));
+            const prices = extractData.reduce((a, b) => a + b);
+            setPricesSum(prices)
+        }
+    },[handleDelete])
+
     const totalItens = formatter.format(pricesSum)
     
     const totalCart = formatter.format(pricesSum + 3.50)
+
+    function handleDelete({name}) {
+        const newCartList = cartData.filter((item) => item.name !== name)
+    
+        setCartData(newCartList)
+        localStorage.setItem(
+          '@coffee-delivery:shop-cart',
+          JSON.stringify(newCartList),
+        )
+    }
 
     return (
         <S.BodyShape>
@@ -59,6 +82,7 @@ export function Cart(){
                             <input placeholder='Bairro' {...register("district", {required: true})} />
                             <input placeholder='Cidade' {...register("city", {required: true})} />
                             <input placeholder='UF' {...register("state", {required: true})} />
+                            <button type="submit">CONFRIMAR PEDIDO</button>
                         </S.Form>
 
                     </S.ZipCode>
@@ -88,17 +112,18 @@ export function Cart(){
                 <S.CoffeeWrapper>
                     <span>Cafés selecionados</span>
                     <S.CoffeeContainer>
-                        
-                    {cartData.map(item => {
+                      
+                    {cartData.length > 0 ? cartData.map(item => {
                         return (
                             <CoffeeList 
                                 name={item.name}
                                 price={item.price}
                                 image={item.image}
                                 counter={item.counter}
+                                handleDelete={handleDelete}
                             />
                             )
-                        })
+                        }) : <S.TotalPriceTitle>Carrinho Vazio...</S.TotalPriceTitle>
                     } 
                         
                         <S.TotalWrapper>
@@ -119,7 +144,7 @@ export function Cart(){
 
                         </S.TotalWrapper>
 
-                        <S.ConfirmButton>CONFRIMAR PEDIDO</S.ConfirmButton>
+                        <S.ConfirmButton type="submit" onClick={onSubmit}>CONFRIMAR PEDIDO</S.ConfirmButton>
 
                     </S.CoffeeContainer>
                 </S.CoffeeWrapper>
