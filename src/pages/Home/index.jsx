@@ -14,24 +14,6 @@ export function Home() {
     const { saveToLocalStorage } = useLocalStorage()
 
     function handleCartSubmit({name, counter, setCounter, image, currencyPrice}){
-
-       /* if ( counter == 0) {
-            const filterAndReset = orderedCoffee.filter(order => {
-                return order.title !== title;
-            })
-
-            setOrderedCoffee(filterAndReset);
-
-            return
-        }*/
-
-        /*const currentTitle = orderedCoffee.find(element => element.title == title);
-
-        if(currentTitle.title == title) {
-            console.log('Café já adicionado')
-            return
-        } */
-        
         setOrderedCoffee([...orderedCoffee, {name: name, counter: counter, image: image, currencyPrice: currencyPrice}])
         saveToLocalStorage(orderedCoffee, '@coffee-delivery:shop-cart')
         toast.success('Item adicionado ao carrinho');

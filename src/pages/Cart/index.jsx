@@ -6,9 +6,11 @@ import { Header } from '../../components/Header';
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useEffect, useState } from "react";
 
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+
 export function Cart(){
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
     const [cartData, setCartData] = useState([]);
     const [pricesSum, setPricesSum] = useState(0);
     const formatter = new Intl.NumberFormat('pt-BR', {
@@ -16,7 +18,13 @@ export function Cart(){
         currency: 'BRL'
     })
     const { loadLocalStorage } = useLocalStorage()
-    
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+        navigate('/delivery', {
+            state: data
+        })
+    }
 
     useEffect(()=>{
         setCartData(loadLocalStorage('@coffee-delivery:shop-cart'));
@@ -82,7 +90,6 @@ export function Cart(){
                             <input placeholder='Bairro' {...register("district", {required: true})} />
                             <input placeholder='Cidade' {...register("city", {required: true})} />
                             <input placeholder='UF' {...register("state", {required: true})} />
-                            <button type="submit">CONFRIMAR PEDIDO</button>
                         </S.Form>
 
                     </S.ZipCode>
@@ -144,7 +151,9 @@ export function Cart(){
 
                         </S.TotalWrapper>
 
-                        <S.ConfirmButton type="submit" onClick={onSubmit}>CONFRIMAR PEDIDO</S.ConfirmButton>
+                        
+                        <S.ConfirmButton onClick={handleSubmit(onSubmit)}>CONFIRMAR PEDIDO</S.ConfirmButton>
+                        
 
                     </S.CoffeeContainer>
                 </S.CoffeeWrapper>

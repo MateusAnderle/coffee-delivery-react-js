@@ -2,9 +2,11 @@ import * as S from './styles'
 import { Header } from "../../components/Header";
 import Illustration from '../../assets/Illustration.png';
 import { MapPin, CurrencyDollar, Clock } from "phosphor-react";
-
+import { useLocation } from 'react-router-dom'
 
 export function Delivery(){
+    const zipCodeData = useLocation();
+
     return (
         <S.BodyShape>
             <Header/>
@@ -24,10 +26,10 @@ export function Delivery(){
                                     </S.IconSeparator>
                                     <S.IconWrapper>
                                         <S.IconTitle>
-                                            <strong>Entrega em Rua João Daniel Martinelli, 102</strong>
+                                            <strong>Entrega em: {zipCodeData.state.street}, {zipCodeData.state.number}</strong>
                                         </S.IconTitle>
                                         <S.IconDescription>
-                                            Farrapos - Porto Alegre, RS
+                                            {zipCodeData.state.district} - {zipCodeData.state.city}, {zipCodeData.state.state}
                                         </S.IconDescription>
                                     </S.IconWrapper>
                                 </S.IconCard>
